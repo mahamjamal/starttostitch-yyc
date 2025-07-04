@@ -39,13 +39,13 @@ const Classes = () => {
 
   return (
     <section className="py-5 text-center" style={{ backgroundColor: '#ffe4e6' }}>
-      <div className="container">
+      <div className="container px-4">
         <h2 className="h1 fw-semibold mb-4" style={{ color: 'pink' }}>
           What You'll Learn
         </h2>
         <div className="row g-4">
           {classData.map((cls) => (
-            <div className="col-12 col-md-4" key={cls.id}>
+           <div className="col-12 col-sm-6 col-lg-4" key={cls.id}>
               <ClassTypeCard
                 title={cls.title}
                 image={cls.image}

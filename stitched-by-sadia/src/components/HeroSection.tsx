@@ -1,6 +1,7 @@
 import topLeft from "../assets/homepage-decor/top-left-measuring-tape.png";
 import bottomLeft from "../assets/homepage-decor/bottom-left-buttons.png";
 import bottomRight from "../assets/homepage-decor/bottom-right-cloth.png";
+import backgroundImage from "../assets/homepage-decor/main-background.png"; // 👈 Your background PNG
 import { useEffect } from "react";
 
 const HeroSection = () => {
@@ -23,7 +24,13 @@ const HeroSection = () => {
   return (
     <section
       className="position-relative min-vh-100 d-flex flex-column justify-content-center align-items-center text-center px-3"
-      style={{ backgroundColor: "#ffe4e6" }}
+      style={{
+        backgroundColor: "white",
+        backgroundImage: `url(${backgroundImage})`, // 👈 Set the background
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover", // Or "contain" if you prefer
+        backgroundPosition: "center",
+      }}
     >
       {/* Decorative PNGs */}
       <img
@@ -45,7 +52,7 @@ const HeroSection = () => {
         style={{ bottom: 0, right: 0, width: "70vw", zIndex: 0 }}
       />
 
-      {/* Main content (unchanged) */}
+      {/* Main content */}
       <div style={{ zIndex: 1 }}>
         <h1 className="display-3 fw-bold mb-4" style={{ color: "pink" }}>
           Start to Stitch YYC
@@ -54,7 +61,7 @@ const HeroSection = () => {
           className="lead text-secondary mx-auto"
           style={{ maxWidth: "600px" }}
         >
-          Personalized lessons, flexible scheduling, and a suppoortive space for
+          Personalized lessons, flexible scheduling, and a supportive space for
           all skill levels.
         </p>
         <button
