@@ -16,19 +16,18 @@ const Gallery = () => (
       >
         <div className="carousel-inner rounded shadow-sm">
           {[
-            {beginnerImg, alt: "Beginner Class"},
-            {intermediateImg, alt: "Intermediate Class"},
-            {advancedImg, alt: "Advanced Class"},
-            
-          ].map((src, index) => (
+            { src: beginnerImg, alt: "Beginner Class" },
+            { src: intermediateImg, alt: "Intermediate Class" },
+            { src: advancedImg, alt: "Advanced Class" },
+          ].map((item, index) => (
             <div
               key={index}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
               <img
-                src={src}
+                src={item.src}
                 className="d-block w-100"
-                alt={`Gallery ${index + 1}`}
+                alt={item.alt}
               />
             </div>
           ))}
