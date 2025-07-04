@@ -1,4 +1,4 @@
-import instructorImg from '../assets/instructor.png'; // adjust path as needed
+import instructorImg from "../assets/instructor.png"; // adjust path as needed
 
 const About = () => (
   <section className="bg-white py-5 px-3">
@@ -24,7 +24,7 @@ const About = () => (
               height: "250px",
               objectFit: "cover",
               top: "30px",
-               backgroundColor: 'transparent',
+              backgroundColor: "transparent",
             }}
           />
         </div>
@@ -40,7 +40,8 @@ const About = () => (
           >
             Our stitching classes are designed for all skill levels. Whether
             you're just starting or looking to master advanced techniques,
-            you'll find a warm, welcoming space to grow.
+            you'll find a warm, welcoming space to grow. Our goal is to equip
+            you with the confidence to start your own projects.
           </p>
         </div>
       </div>

@@ -48,7 +48,7 @@ const HeroSection = () => {
       {/* Main content (unchanged) */}
       <div style={{ zIndex: 1 }}>
         <h1 className="display-3 fw-bold mb-4" style={{ color: "pink" }}>
-          Sewing with Sadia
+          Start to Stitch YYC
         </h1>
         <p
           className="lead text-secondary mx-auto"
