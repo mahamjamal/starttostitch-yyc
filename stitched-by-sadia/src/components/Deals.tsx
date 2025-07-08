@@ -27,7 +27,7 @@ const Deals = () => {
   return (
     <section className="py-5 text-center" style={{ backgroundColor: "#ffe4e6" }}>
       <div className="container px-4">
-        <h2 className="h1 fw-semibold mb-4" style={{ color: "#ec4899" }}>
+        <h2 className="h1 fw-semibold mb-4" style={{ color: "#db2777" }}>
           Special Offers
         </h2>
         <div className="row g-4">

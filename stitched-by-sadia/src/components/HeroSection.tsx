@@ -54,9 +54,18 @@ const HeroSection = () => {
 
       {/* Main content */}
       <div style={{ zIndex: 1 }}>
-        <h1 className="display-3 fw-bold mb-4" style={{ color: "pink" }}>
-          Start to Stitch YYC
+        <h1
+          className="display-3 fw-bold mb-4"
+          style={{ color: "#db2777" }}
+        >
+          Start to Stitch 
         </h1>
+        <h5
+          className="display-6 fw-bold mb-4"
+          style={{ color: "pink", fontStyle: "italic", fontFamily: "cursive" }}
+        >
+          From first stitch to masterpiece 
+        </h5>
         <p
           className="lead text-secondary mx-auto"
           style={{ maxWidth: "600px" }}
@@ -64,23 +73,28 @@ const HeroSection = () => {
           Personalized lessons, flexible scheduling, and a supportive space for
           all skill levels.
         </p>
-        <button
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdnlXbNdGDuTocw4UlDtRE1y2LNssMhyPtaVB7lIWdePpOdKQ/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn px-4 py-2"
           style={{
             backgroundColor: "#ec4899",
             color: "white",
             borderRadius: "999px",
             transition: "background-color 0.3s ease",
+            display: "inline-block",
+            textDecoration: "none",
           }}
-          onMouseOver={(e) =>
-            ((e.target as HTMLButtonElement).style.backgroundColor = "#db2777")
+          onMouseOver={e =>
+            ((e.target as HTMLAnchorElement).style.backgroundColor = "#db2777")
           }
-          onMouseOut={(e) =>
-            ((e.target as HTMLButtonElement).style.backgroundColor = "#ec4899")
+          onMouseOut={e =>
+            ((e.target as HTMLAnchorElement).style.backgroundColor = "#ec4899")
           }
         >
           Join a Class
-        </button>
+        </a>
       </div>
     </section>
   );

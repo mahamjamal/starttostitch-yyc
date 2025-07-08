@@ -1,72 +1,39 @@
 import beginnerImg from "../assets/beginner.png";
 import intermediateImg from "../assets/intermediate.png";
 import advancedImg from "../assets/advanced.png";
-import { useRef, useEffect } from "react";
 
 const baseImages = [beginnerImg, intermediateImg, advancedImg];
 const baseAlts = ["Beginner Class", "Intermediate Class", "Advanced Class"];
 
-const images = Array.from({ length: 15 }, () => {
+// Create 5 images (can include repeats)
+const images = Array.from({ length: 5 }, () => {
   const idx = Math.floor(Math.random() * baseImages.length);
   return { src: baseImages[idx], alt: baseAlts[idx] };
 });
 
-const rotations = ["-4deg", "3deg", "-2deg", "2deg", "-3deg", "4deg", "-1deg", "1deg"];
+const rotations = ["-4deg", "3deg", "-2deg", "2deg", "-3deg", "4deg"];
 
 const Gallery = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    let animationFrameId: number;
-    const scrollSpeed = 0.5; // pixels per frame, adjust for speed
-
-    const step = () => {
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        // reset scroll to start for infinite loop effect
-        container.scrollLeft = 0;
-      } else {
-        container.scrollLeft += scrollSpeed;
-      }
-      animationFrameId = requestAnimationFrame(step);
-    };
-
-    animationFrameId = requestAnimationFrame(step);
-
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
-
-  // Duplicate the images to create seamless looping effect
-  const scrollingImages = [...images, ...images];
-
   return (
-    <section
-      className="bg-white py-4 px-3"
-      style={{ width: "100%", overflowX: "hidden" }}
-    >
+    <section className="bg-white py-4 px-3" style={{ width: "100%" }}>
       <div className="container text-center" style={{ maxWidth: "100%" }}>
-        <h2 className="h2 fw-semibold mb-4" style={{ color: "pink" }}>
-          A Sneak Peak Into Our Classes!
+        <h2 className="h2 fw-semibold mb-4" style={{ color: "#db2777" }}>
+          A Sneak Peek Into Our Classes!
         </h2>
 
         <div
-          ref={scrollContainerRef}
-          className="no-scrollbar"
+          className="image-scroll-container"
           style={{
             display: "flex",
-            overflowX: "auto",
-            scrollBehavior: "smooth",
-            paddingBottom: "10px",
             gap: "20px",
-            userSelect: "none",
+            overflowX: "auto",
             WebkitOverflowScrolling: "touch",
-            scrollSnapType: "x mandatory", // optional, for nice snap if user scrolls manually
             scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            paddingBottom: "10px",
           }}
         >
-          {scrollingImages.map((item, index) => (
+          {images.map((item, index) => (
             <div
               key={index}
               style={{
@@ -79,7 +46,6 @@ const Gallery = () => {
                 flex: "0 0 auto",
                 transform: `rotate(${rotations[index % rotations.length]})`,
                 cursor: "pointer",
-                transition: "transform 0.3s ease",
               }}
             >
               <div
@@ -123,14 +89,12 @@ const Gallery = () => {
       </div>
 
       <style>{`
-        /* Hide scrollbar - Chrome, Safari, Opera */
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
+        .image-scroll-container::-webkit-scrollbar {
+          display: none; /* Chrome, Safari */
         }
-        /* Hide scrollbar - Firefox */
-        .no-scrollbar {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
+        .image-scroll-container {
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE and Edge */
         }
       `}</style>
     </section>
